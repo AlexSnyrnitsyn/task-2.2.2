@@ -17,6 +17,7 @@ public class CarDaoImpl implements CarDao {
         cars.add(new Car(3L, "Lada3", 3));
         cars.add(new Car(4L, "Lada4", 4));
         cars.add(new Car(5L, "Lada5", 5));
-        return cars;
+        List<Car> carList = cars;
+        return carList;
     }
 }
