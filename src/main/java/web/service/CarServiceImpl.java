@@ -19,8 +19,8 @@ public class CarServiceImpl implements CarService {
     @Override
     public List<Car> countCar(int count) {
         if(count >= 5) {
-            return carDao.cars;
+            return carDao.getAllCars();
         }
-        return carDao.cars.stream().limit(count).collect(Collectors.toList());
+        return carDao.getAllCars().stream().limit(count).collect(Collectors.toList());
     }
 }
