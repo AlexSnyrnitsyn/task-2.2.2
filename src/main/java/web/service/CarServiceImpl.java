@@ -14,13 +14,13 @@ import java.util.stream.Collectors;
 public class CarServiceImpl implements CarService {
 
     @Autowired
-    private final CarDao carDao = new CarDaoImpl();
+    private final CarDaoImpl carDao = new CarDaoImpl();
 
     @Override
     public List<Car> countCar(int count) {
         if(count >= 5) {
-            return carDao.carList();
+            return carDao.cars;
         }
-        return carDao.carList().stream().limit(count).collect(Collectors.toList());
+        return carDao.cars.stream().limit(count).collect(Collectors.toList());
     }
 }
