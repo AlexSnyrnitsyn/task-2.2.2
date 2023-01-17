@@ -10,6 +10,7 @@ import web.model.Car;
 import web.service.CarService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/cars")
@@ -19,9 +20,8 @@ public class CarController {
     private CarService carService;
 
     @GetMapping
-    public String getCars(@RequestParam(name = "count", defaultValue = "5") int countCar, Model model){
-        List<Car> list = carService.countCar(countCar);
-        model.addAttribute("list", list);
+    public String getCars(@RequestParam(name = "count", required = false) Optional<Integer> countCar, Model model){
+        model.addAttribute("list", carService.countCar(countCar.orElse(0)));
         return "cars";
     }
 }

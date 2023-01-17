@@ -20,6 +20,7 @@ public class CarDaoImpl implements CarDao {
     }
 
     public static List<Car> getAllCars() {
-        return cars;
+        List<Car> carList = cars;
+        return carList;
     }
 }
